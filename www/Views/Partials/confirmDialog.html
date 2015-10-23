@@ -1,0 +1,17 @@
+<div id="confirmDialog" class="modal fade" modalconfirm>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{ml("Global.Warning")}}</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-bind-html="warningMessageOnDeleting"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ml("Global.Cancel")}}</button>
+                <button type="button" class="btn btn-primary" ng-click="delete();">{{ml("Global.Okay")}}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading"><i class="fa fa-table"></i> {{ml("PageTitle")}}</div>
+  <div class="panel-body">
+    <div class="widget">
+        <div class="widget-head">
+            <div ng-include="'views/partials/searchBox.html'"></div>
+        </div>
+        <div class="widget-content">
+            <!-- Table -->
+            <div class="table-responsive">
+                <div ng-include="'views/partials/modelList.html'"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="widget-foot">
+        </div>
+    </div>
+  </div>
+</div>
+<div ng-include="'views/partials/modal.html'"></div>

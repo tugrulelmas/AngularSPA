@@ -1,0 +1,19 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>{{ml("Global.Code")}}</th>
+            <th>{{ml("Global.Name")}}</th>
+            <th class="grid-actions">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="model in modelList | filter:search" ng-class="{danger: !model.RecordStatus}">
+            <td>{{model.Code}}</td>
+            <td>{{model.Name}}</td>
+            <td>
+               <div ng-include="'views/partials/gridActions.html'"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>

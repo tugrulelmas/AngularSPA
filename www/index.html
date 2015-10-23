@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abioka</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/font-awesome.min.css" rel="stylesheet">
+    <link href="Content/site.css" rel="stylesheet">
+</head>
+<body ng-app="abioka" ng-controller="globalController">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">{{ml("Global.Home")}}</a></li>
+                    <li><a href="#/customer">{{ml("Global.Customers")}}</a></li>
+                    <li><a href="#/product">{{ml("Global.Products")}}</a></li>
+                    <li><a href="#/user">{{ml("Global.Users")}}</a></li>
+                </ul>
+
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="">
+                        <i class="fa fa-language"></i> {{ml("Global.Language")}}<b class="caret"></b>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="changeLanguage('tr')">Türkçe</a></li>
+                        <li><a href="" ng-click="changeLanguage('en')">English</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div data-ng-view=""></div>
+        <hr />
+        <footer>
+            <p>&copy;Abioka</p>
+        </footer>
+    </div>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/respond.min.js"></script>
+
+    <script src="Scripts/noty/jquery.noty.js"></script>
+    <script src="Scripts/noty/themes/default.js"></script>
+    <script src="Scripts/noty/layouts/topRight.js"></script>
+    <script src="Scripts/noty/layouts/top.js"></script>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/angular-sanitize.min.js"></script>
+
+    <script src="Scripts/custom.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/translationService.js"></script>
+    <script src="app/restService.js"></script>
+    <script src="app/Controller/mainController.js"></script>
+    <script src="app/Controller/baseController.js"></script>
+    <script src="app/Controller/baseRepositoryController.js"></script>
+    <script src="app/Controller/customerController.js"></script>
+    <script src="app/Controller/productController.js"></script>
+    <script src="app/Controller/userController.js"></script>
+    <script src="app/Controller/globalController.js"></script>
+</body>
+</html>

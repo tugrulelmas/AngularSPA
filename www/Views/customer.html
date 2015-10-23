@@ -1,0 +1,73 @@
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading"><i class="fa fa-table"></i> {{ml("PageTitle")}}</div>
+  <div class="panel-body">
+    <div class="widget">
+        <div class="widget-head">
+            <div ng-include="'views/partials/searchBox.html'"></div>
+        </div>
+        <div class="widget-content">
+            <!-- Table -->
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                  <thead>
+                      <tr>
+                          <th>{{ml("Global.Code")}}</th>
+                          <th>{{ml("Global.Name")}}</th>
+                          <th>{{ml("Global.PhoneNumber")}}</th>
+                          <th class="grid-actions">
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="model in modelList | filter:search" ng-class="{danger: !model.RecordStatus}">
+                          <td>{{model.Code}}</td>
+                          <td>{{model.Name}}</td>
+                          <td>{{model.PhoneNumber}}</td>
+                          <td>
+                             <div ng-include="'views/partials/gridActions.html'"></div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="widget-foot">
+        </div>
+    </div>
+  </div>
+</div>
+<div id="modalDialog" class="modal fade" modal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{ml("Global.Detail")}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtId">{{ml("Global.Code")}}</label>
+                    <input class="form-control" id="txtId" placeholder="{{ml('Global.Code')}}" ng-model="selectedModel.Code" ng-disabled="!isNewRecord">
+                </div>
+                <div class="form-group">
+                    <label for="txtName">{{ml("Global.Name")}}</label>
+                    <input class="form-control" id="txtName" placeholder="{{ml('Global.Name')}}" ng-model="selectedModel.Name">
+                </div>
+                <div class="form-group">
+                    <label for="txtPhoneNumber">{{ml("Global.PhoneNumber")}}</label>
+                    <input class="form-control" id="txtPhoneNumber" placeholder="{{ml('Global.PhoneNumber')}}" ng-model="selectedModel.PhoneNumber">
+                </div>
+                <div class="form-group">
+                    <label for="selectRecordStatus">{{ml("Global.RecordStatus")}}</label>
+                    <select class="form-control" ng-model="selectedModel.RecordStatus" ng-options="o.v as o.n for o in [{ n: '{{ml('Global.Active')}}', v: true }, { n: '{{ml('Global.Passive')}}', v: false }]"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ml("Global.Cancel")}}</button>
+                <button type="button" class="btn btn-primary" ng-click="createOrUpdate();" ng-disabled="!isModalValid()">{{ml("Global.Okay")}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'views/partials/confirmDialog.html'"></div>
